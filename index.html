@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body{
+			min-height: 100vh;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.input{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+		}
+		.result{
+			height: 200px;
+			width: 300px;
+			margin-left: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="input">
+		<div class="field">
+			
+				<div>
+					<input type="number" id="input" name="input" placeholder="Enter a number" required>
+				</div>
+				<div>
+					<input type="submit" name="submit" value="Submit" onclick="process()">
+				</div>
+			
+		</div>
+	</div>
+	<div class="result" id="result">
+		
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	function process(){
+		let input = document.getElementById('input').value;
+		let n=0;
+		let odd = "Odd ";
+		let even = "Even ";
+		let is_prime = 1;
+		let prime;
+
+
+		for(let i = 1; i<=input; i++){
+			if(i%2==0){
+				even = even + i+" ";
+			}else{
+				odd = odd + i+" ";
+			}
+		}
+		for (let j = 2; j <= input/2; ++j) {
+		    if (input % j == 0) {
+      			is_prime = 0;
+    		}
+  		}
+  		if(input==0 || input==1){
+  			prime = input +" is Prime!<br>";
+  		}
+  		if(is_prime==1){
+  			prime = input +" is Prime!<br>";
+  		}else{
+  			prime = input +" is NOT a prime!<br>";
+  		}
+		result = prime + "<br>" + even + "<br><br>" + odd;
+		document.getElementById("result").innerHTML = result;
+	}
+</script>
+
