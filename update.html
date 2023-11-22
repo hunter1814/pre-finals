@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body{
+			min-height: 100vh;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+		.input{
+			width: 200px;
+			height: 200px;
+			display: flex;
+			margin-top: 100px;
+
+		}
+		.result{
+			height: 300px;
+			width: 450px;
+			margin-left: 50px;
+			font-size: 20px;
+			margin-top: 100px;
+			overflow: auto;
+		}
+		.inputfield{
+			height: 40px;
+			width: 200px;
+			border-bottom: 2px solid lightblue;
+			border-right: 1px solid lightblue;
+		}
+		.inputfield input{
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+			border: none;
+			outline: none;
+			font-size: 20px;
+		}
+		.main{
+			height: 450px;
+			width: 750px;
+			border: 1px solid black;
+			border-radius: 10px;
+			display: flex;
+			justify-content: center;
+		}
+		.title{
+			position: absolute;
+			font-size: 25px;
+			margin-top: 25px;
+			font-weight: 600;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="title">
+			<label>Determine Prime Numbers and Display Even and Odd Numbers</label>
+		</div>
+		<div class="input">
+			<div class="field">
+				
+					<div class="inputfield">
+						<input type="number" id="input" name="input" placeholder="Enter a number" onkeyup="process()" onfocus="css()" onfocusout="css2()" autofocus required>
+					</div>
+					<div>
+	<!--					<input type="submit" name="submit" value="Submit" onclick="process()">
+	-->
+					</div>
+				
+			</div>
+		</div>
+	<div class="result" id="result">
+		
+	</div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	function process(){
+		let input = document.getElementById('input').value;
+		if(input!=""){
+			if(parseInt(input)){
+				if(input<=1000){
+					let n=0;
+					let odd = "<a style='color: blue; font-weight=600'>Odd </a> ";
+					let even = "<a style='color: blue; font-weight=600'>Even </a> ";
+					let is_prime = 1;
+					let prime;
+					for(let i = 1; i<=input; i++){
+						if(i%2==0){
+							even = even + i+" ";
+						}else{
+							odd = odd + i+" ";
+						}
+					}
+					for (let j = 2; j < input/2; ++j) {
+					    if (input % j == 0) {
+			      			is_prime = 0;
+			    		}
+			  		}
+			  		if(input==0 || input==1){
+			  			prime = input +" is Prime!<br>";
+			  		}
+			  		if(is_prime==1){
+			  			prime = input +" is <a style='color: blue; font-weight=600'>Prime!</a><br>";
+
+			  		}else{
+			  			prime = input +" is <a style='color: red; font-weight=600'>NOT a prime!</a><br>";
+			  		}
+					result = prime + "<br>" + even + "<br><br>" + odd;
+					document.getElementById("result").innerHTML = result;
+				}else{
+					document.getElementById("result").innerHTML = "Input must be less than 1000 for the browser to load efficiently.";
+				}
+			}else{
+				document.getElementById("result").innerHTML = "Input must be a Number!";
+			}
+		}else{
+			document.getElementById("result").innerHTML = "Enter a valid Number. (NOT less than 0)";
+		}
+	}
+	document.getElementById("result").innerHTML = "Enter a valid Number. (NOT less than 0)";
+	function css(){
+		document.getElementById("result").style.color="green";
+	}
+	function css2(){
+		document.getElementById("result").style.color="black";
+	}
+</script>
