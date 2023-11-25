@@ -55,6 +55,22 @@
 			margin-top: 25px;
 			font-weight: 600;
 		}
+		.prime{
+			height: 50px;
+			width: 400px;
+		}
+		.odd{
+			height: 100px;
+			width: 400px;
+			margin-top: 20px;
+			overflow: auto;
+		}
+		.even{
+			height: 100px;
+			width: 400px;
+			margin-top: 20px;
+			overflow: auto;
+		}
 	</style>
 </head>
 <body>
@@ -114,7 +130,7 @@
 			  		}else{
 			  			prime = input +" is <a style='color: red; font-weight=600'>NOT a prime!</a><br>";
 			  		}
-					result = prime + "<br>" + even + "<br><br>" + odd;
+					result = "<div class='prime' >"+ prime + "</div><div class='even'>" + even + "</div><div class='odd'>" + odd;
 					document.getElementById("result").innerHTML = result;
 				}else{
 					document.getElementById("result").innerHTML = "Input must be less than 1000 for the browser to load efficiently.";
@@ -134,3 +150,4 @@
 		document.getElementById("result").style.color="black";
 	}
 </script>
+
